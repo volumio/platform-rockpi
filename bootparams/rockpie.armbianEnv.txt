@@ -1,0 +1,14 @@
+verbosity=8
+bootlogo=false
+overlay_prefix=rockchip
+fdtfile=rockchip/rk3328-rock-pi-e.dtb
+rootdev=UUID=
+rootfstype=ext4
+console=serial
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
+extraargs=imgpart=UUID=
+extraargs=bootpart=UUID=
+extraargs=datapart=UUID=
+extraargs=bootconfig=armbianEnv.txt imgfile=/volumio_current.sqsh net.ifnames=0
+overlays=
+user_overlays=

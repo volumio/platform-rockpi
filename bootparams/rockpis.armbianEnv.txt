@@ -1,0 +1,14 @@
+verbosity=8
+extraargs=swiotlb=1024
+overlay_prefix=rk3308
+fdtfile=rockchip/rk3308-rock-pi-s.dtb
+rootdev=UUID=
+rootfstype=ext4
+console=serial
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
+extraargs=imgpart=UUID=
+extraargs=bootpart=UUID=
+extraargs=datapart=UUID=
+extraargs=bootconfig=armbianEnv.txt imgfile=/volumio_current.sqsh
+overlays=
+user_overlays=audio-analog-i2s
