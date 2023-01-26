@@ -2,7 +2,7 @@
 set -eo pipefail
 
 # Default to S
-ver="${1:-e}"
+ver="${1:-s}"
 [[ $# -ge 1 ]] && shift 1
 if [[ $# -ge 0 ]]; then
   armbian_extra_flags=("$@")
