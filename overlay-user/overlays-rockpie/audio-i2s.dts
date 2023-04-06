@@ -1,0 +1,183 @@
+/dts-v1/;
+
+/ {
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+
+			pcm510x {
+				#sound-dai-cells = <0x00>;
+				compatible = "ti,pcm5102a";
+				pcm510x,format = "i2s";
+				status = "okay";
+				phandle = <0x01>;
+			};
+
+			i2s-sound {
+				compatible = "simple-audio-card";
+				simple-audio-card,format = "i2s";
+				simple-audio-card,mclk-fs = <0x100>;
+				simple-audio-card,name = "I2S";
+				status = "okay";
+				phandle = <0x02>;
+
+				simple-audio-card,cpu {
+					sound-dai = <0xffffffff>;
+				};
+
+				simple-audio-card,codec {
+					sound-dai = <0x01>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@2 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+	fragment@3 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x0f 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@4 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x12 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@5 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x10 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@6 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x11 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@7 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x13 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@8 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x17 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@9 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x14 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@10 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x15 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@11 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x16 0x01 0xffffffff>;
+		};
+	};
+
+	fragment@12 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			rockchip,pins = <0x02 0x0f 0x00 0xffffffff 0x02 0x10 0x00 0xffffffff 0x02 0x11 0x00 0xffffffff 0x02 0x12 0x00 0xffffffff 0x02 0x13 0x00 0xffffffff 0x02 0x14 0x00 0xffffffff 0x02 0x15 0x00 0xffffffff 0x02 0x16 0x00 0xffffffff 0x02 0x17 0x00 0xffffffff>;
+		};
+	};
+
+	fragment@13 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <0xffffffff 0xffffffff 0xffffffff 0xffffffff 0xffffffff 0xffffffff 0xffffffff 0xffffffff>;
+			rockchip,playback-channels = <0x08>;
+		};
+	};
+
+	__symbols__ {
+		pcm5102 = "/fragment@0/__overlay__/pcm510x";
+		i2s_sound = "/fragment@0/__overlay__/i2s-sound";
+	};
+
+	__fixups__ {
+		i2s1 = "/fragment@0/__overlay__/i2s-sound/simple-audio-card,cpu:sound-dai:0\0/fragment@13:target:0";
+		analog_sound = "/fragment@1:target:0";
+		codec = "/fragment@2:target:0";
+		i2s1_mclk = "/fragment@3:target:0\0/fragment@13/__overlay__:pinctrl-0:0";
+		pcfg_pull_down = "/fragment@3/__overlay__:rockchip,pins:12\0/fragment@4/__overlay__:rockchip,pins:12";
+		i2s1_sclk = "/fragment@4:target:0\0/fragment@13/__overlay__:pinctrl-0:4";
+		i2s1_lrckrx = "/fragment@5:target:0\0/fragment@13/__overlay__:pinctrl-0:8";
+		pcfg_pull_up = "/fragment@5/__overlay__:rockchip,pins:12\0/fragment@6/__overlay__:rockchip,pins:12\0/fragment@7/__overlay__:rockchip,pins:12\0/fragment@8/__overlay__:rockchip,pins:12\0/fragment@9/__overlay__:rockchip,pins:12\0/fragment@10/__overlay__:rockchip,pins:12\0/fragment@11/__overlay__:rockchip,pins:12";
+		i2s1_lrcktx = "/fragment@6:target:0\0/fragment@13/__overlay__:pinctrl-0:12";
+		i2s1_sdi = "/fragment@7:target:0\0/fragment@13/__overlay__:pinctrl-0:16";
+		i2s1_sdo = "/fragment@8:target:0\0/fragment@13/__overlay__:pinctrl-0:20";
+		i2s1_sdio1 = "/fragment@9:target:0\0/fragment@13/__overlay__:pinctrl-0:24";
+		i2s1_sdio2 = "/fragment@10:target:0\0/fragment@13/__overlay__:pinctrl-0:28";
+		i2s1_sdio3 = "/fragment@11:target:0";
+		i2s1_sleep = "/fragment@12:target:0";
+		pcfg_input_high = "/fragment@12/__overlay__:rockchip,pins:12\0/fragment@12/__overlay__:rockchip,pins:28\0/fragment@12/__overlay__:rockchip,pins:44\0/fragment@12/__overlay__:rockchip,pins:60\0/fragment@12/__overlay__:rockchip,pins:76\0/fragment@12/__overlay__:rockchip,pins:92\0/fragment@12/__overlay__:rockchip,pins:108\0/fragment@12/__overlay__:rockchip,pins:124\0/fragment@12/__overlay__:rockchip,pins:140";
+	};
+
+	__local_fixups__ {
+
+		fragment@0 {
+
+			__overlay__ {
+
+				i2s-sound {
+
+					simple-audio-card,codec {
+						sound-dai = <0x00>;
+					};
+				};
+			};
+		};
+	};
+};
