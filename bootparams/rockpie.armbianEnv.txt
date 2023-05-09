@@ -6,6 +6,6 @@ rootdev=UUID=
 rootfstype=ext4
 console=serial
 usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
-extraargs=imgpart=UUID= bootpart=UUID= datapart=UUID= bootconfig=armbianEnv.txt imgfile=/volumio_current.sqsh net.ifnames=0
+extraargs=imgpart=UUID= bootpart=UUID= datapart=UUID= bootconfig=armbianEnv.txt imgfile=/volumio_current.sqsh net.ifnames=0 hwver=rockpie
 overlays=
 user_overlays=
