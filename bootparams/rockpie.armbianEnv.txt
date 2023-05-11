@@ -1,5 +1,5 @@
-verbosity=8
-bootlogo=false
+verbosity=0
+bootlogo=true
 overlay_prefix=rockchip
 fdtfile=rockchip/rk3328-rock-pi-e.dtb
 rootdev=UUID=
