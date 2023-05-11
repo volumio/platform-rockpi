@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
-# Default to S
-ver="${1:-s}"
+# Default to E
+ver="${1:-e}"
 [[ $# -ge 1 ]] && shift 1
 if [[ $# -ge 0 ]]; then
   armbian_extra_flags=("$@")
@@ -12,7 +12,7 @@ else
 fi
 
 C=$(pwd)
-A=../../armbian
+A=../../armbian-master
 P="rockpi${ver}"
 B="edge"
 T="rockpi-${ver}"
@@ -63,7 +63,7 @@ cp "${A}/output/debs/linux-headers-${B}-${K}_${ARMBIAN_VERSION}"* "${C}"
 
 dpkg-deb -x "${A}/output/debs/linux-dtb-${B}-${K}_${ARMBIAN_VERSION}"* "${P}"
 dpkg-deb -x "${A}/output/debs/linux-image-${B}-${K}_${ARMBIAN_VERSION}"* "${P}"
-dpkg-deb -x "${A}/output/debs/linux-u-boot-${T}-${B}_${ARMBIAN_VERSION}"* "${P}"
+dpkg-deb -x "${A}/output/debs/linux-u-boot-${B}-${T}_${ARMBIAN_VERSION}"* "${P}"
 dpkg-deb -x "${A}/output/debs/armbian-firmware_${ARMBIAN_VERSION}"* "${P}"
 
 # Copy bootloader stuff
