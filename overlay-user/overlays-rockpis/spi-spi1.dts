@@ -1,0 +1,20 @@
+//For RockPI-S: Enable SPI1 
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	fragment@0 {
+		target = <&spi1>;
+		__overlay__ {
+			status = "okay";
+			
+			spidev: spidev@1 {
+				status = "okay";
+				compatible = "linux,spidev";
+				spi-max-frequency = <25000000>;
+				reg = <0>;
+			};
+		};
+	};
+};
