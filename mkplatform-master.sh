@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
-# Default to E
-ver="${1:-e}"
+# Default to S
+ver="${1:-s}"
 [[ $# -ge 1 ]] && shift 1
 if [[ $# -ge 0 ]]; then
   armbian_extra_flags=("$@")
@@ -24,7 +24,7 @@ ARMBIAN_VERSION=$(cat ${A}/VERSION)
 # Custom patches
 mkdir -p "${A}"/userpatches/kernel/"${K}"-"${B}"/
 rm -rf "${A}"/userpatches/kernel/"${K}"-"${B}"/*.patch
-if [ -e "${C}"/patches/*.patch ]
+if ls "${C}"/patches/*.patch &> /dev/null;
 then
   echo "Adding custom patches"
   ls "${C}/patches/"
