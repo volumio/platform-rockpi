@@ -1,0 +1,9 @@
+// For RockPi-S: disable sdio bus, thus disabling wifi
+// part of rtl8723ds
+
+/dts-v1/;
+/plugin/;
+
+&sdio {
+	status = "disabled";
+};

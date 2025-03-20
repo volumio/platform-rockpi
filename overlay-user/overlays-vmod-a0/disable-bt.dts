@@ -1,0 +1,8 @@
+// For RockPi-S: disable uart4, thus disabling bluetooth
+
+/dts-v1/;
+/plugin/;
+
+&uart4 {
+	status = "disabled";
+};
